@@ -250,7 +250,7 @@ public class TesseractivityScript : MonoBehaviour
 
     private IEnumerator ProcessTwitchCommand(string command)
     {
-        var parameters = command.ToLowerInvariant().Split();
+        var parameters = command.ToLowerInvariant().Split(' ');
         var m = Regex.Match(parameters[0], @"^\s*setspeed\s*$", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
         if (m.Success)
         {
@@ -264,7 +264,7 @@ public class TesseractivityScript : MonoBehaviour
             }
             yield return null;
             _tpSpeed = tempSpeed;
-            yield return "sendtochat Lights Cubed press speed has been set to " + parameters[1];
+            yield return "sendtochat Tesseractivity press speed has been set to " + parameters[1];
             yield break;
         }
         var chars = "xyzwt ".ToCharArray();
